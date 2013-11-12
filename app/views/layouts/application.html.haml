@@ -1,21 +1,461 @@
 !!!
 %html
   %head
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Tickets'
+    %title= content_for?(:title) ? yield(:title) : 'Рекламные билеты в маршрутных такси Чебоксары'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Tickets'}"}
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    -# application layout styled for Twitter Bootstrap 2.3
-    %header
-      = render 'layouts/navigation'
+    .gradient1
     %main{:role => "main"}
       .container
         .content
           .row
             .span12
               = render 'layouts/messages'
-              = yield
-          %footer
+          .row.title-about
+            .span4
+              .about
+                Реклама на билетах маршрутных такси
+              .city
+                В Чебоксарах
+            .span4
+              .logo
+                = image_tag 'logo.jpg'
+            .span4
+              .phone +7 [8352] 46-05-05
+              .phone2 +7 [8352] 46-05-05
+              .mail 1_rkm@mail.ru
+      .clear
+      .tac
+        %ul#menu
+          %li= link_to "Что мы делаем", "#side1", class: 'smooth'
+          %li.sep &nbsp;
+          %li= link_to "Эффективность", "#side2", class: 'smooth'
+          %li.sep &nbsp;
+          %li= link_to "Прайс-лист", "#side3", class: 'smooth'
+          %li.sep &nbsp;
+          %li= link_to "Шаблон", "#side4", class: 'smooth'
+          %li.sep &nbsp;
+          %li= link_to "Наши работы", "#side5", class: 'smooth'
+      .container
+        .content
+          .row
+            .span12.big-gazele
+              .yellow-title-gaz
+                Быстрое и эффективное размещение Вашей рекламы
+              .yellow-form-callback
+                = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
+                  = f.input_field :name, placeholder: 'Ваше Имя', required: true
+                  = f.input_field :phone, placeholder: 'Телефон', required: true
+                  = f.input_field :email, placeholder: 'Email', required: true
+                  = f.submit 'Заказать рекламу', class: "yellow-submit"
+              = image_tag 'gazele.jpg'
+          .row-fluid.why-its-work
+            .span5
+              .cube
+                .cube-text-big
+                  Почему
+                .cube-text-middle
+                  рекламные
+                .cube-text-big
+                  билеты
+                .cube-text-middle2
+                  работают ?
+              .cube-footer
+            .span7
+              %table
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      В Чебоксарах водитель выдает билет каждому пассажиру
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Пассажир сохраняет билет до конца поездки
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Во время поездки пассажир рассматривает билет
+                      %strong или
+                      автоматически кладет билет в карман (кошелёк)
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Придя домой или на работу, пассажир вновь достает билет из кармана (кошелька) и снова смотрит на него.
+      .gradient2
+      .yellow-offer-of-the-week
+        .container
+          .content
+            .row
+              .span7
+                .yellow-offer-of-the-week-block
+                  .red-text
+                    Предложение недели
+                  .text-do
+                    закажите
+                  .text-titcket
+                    36 000 билетов
+                  .text-to
+                    всего за
+                    %span 11 000
+                    руб.
+              .span5
+                .yellow-offer-of-the-week-form
+                  = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
+                    .time-action
+                      до конца акции осталось
+                    .input-string
+                      .clocks
+                        %i.t_h
+                        .div час
+                        %i.t_m
+                        .div мин
+                        %i.t_s
+                        .div сек
+                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
+                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.submit 'оставить заявку', class: "red-submit"
+      .gradient3#side1
+      .container
+        .content
+          .row-fluid.what-we-do
+            .span5
+              .cube
+                .cube-text-middle
+                  ч т о
+                .cube-text-big
+                  м ы
+                .cube-text-middle2
+                  делаем ?
+              .cube-footer
+            .span7
+              %table
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      %strong Рекламные билеты с вашей рекламой:
+                      %br
+                      \- 4+4 (цветная реклама с двух сторон)
+                      %br
+                      \- плотность бумаги - 115 гр./м2
+                      %br
+                      \-
+                      %strong увеличенный
+                      размер 7 х 100 мм
+                      %br
+                      %br
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      %strong Мониторинг и анализ эффективности рекламных компаний
+      .gradient2
+      .yellow-calculation
+        .container
+          .content
+            .row
+              .span12
+                .yellow-calculation-text
+                  Закажите расчет рекламной компании БЕСПЛАТНО
+            .row
+              .span12
+                .white-line
+                  = simple_form_for('callback', url: root_path, html: { class: '' }) do |f|
+                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
+                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.submit 'Заказать', class: "yellow-submit"
+      .gradient3#side2
+      .yellow-table
+        .container
+          .content
+            .row
+              .span12
+                .yellow-table-line
+                  7 преимуществ рекламы на билетах
+              .span12
+                %table
+                  %tr
+                    %td{ valign: 'top'}
+                      .tail 1
+                      .title Широкий охват
+                      .text Возможность раздать сотню тысяч «листовок/визиток» без привлечения промоутеров. 350-500 билетов на 1 машину в день.
+                    %td{ valign: 'top'}
+                      .tail 2
+                      .title Гарантированный контакт
+                      .text Вашу рекламу увидит каждый пассажир.
+                    %td{ valign: 'top'}
+                      .tail 3
+                      .title Проверьте эффективность
+                      .text Вы можете отслеживать и анализировать эффективность Вашей рекламной компании!
+                  %tr
+                    %td{ valign: 'top'}
+                      .tail 4
+                      .title Оригинальный рекламный носитель
+                      .text Новый большой размер билета автоматически привлекает внимание пассажира!
+                    %td{ valign: 'top'}
+                      .tail 5
+                      .title Мобильное размещение
+                      .text Вы сами выбираете район для вашей рекламы
+                    %td{ valign: 'top'}
+                      .tail 6
+                      .title Индивидуальный номер билета
+                      .text Возможность проведения лотерей и розыгрышей по номерам билетов, а так же различных рекламных компаний («Предъяви билет и получи скидку»)
+                  %tr
+                    %td.center{ colspan: 3, valign: 'top'}
+                      .tail 7
+                      .title Низкая стоимость
+      .container
+        .content
+          .row-fluid.we-recomendate-you
+            .span5
+              .cube
+                .cube-text-middle
+                  рекомендуем
+                .cube-text-big
+                  д л я
+                .cube-text-middle2
+                  рекламы
+              .cube-footer
+            .span7
+              %table
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Агенства недвижимости
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Лекарственные средства
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Банковские и страховые услуги
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Розыгрыши призов и рекламные акции
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Курсы, образовательные услуги
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Окна и двери
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Мебель
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Салоны красовы, парикмахерские
+                %tr
+                  %td
+                    .tail
+                  %td
+                    .text
+                      Рестораны, кафе, бары
+      .gradient3#side4
+      .template
+        .container
+          .content
+            .row
+              .span12
+                .yellow-table-line
+                  шаблон
+            .row
+              .span12
+                .image-template
+                  = image_tag('template.jpg')
+      .gradient2
+      .yellow-calculation
+        .container
+          .content
+            .row
+              .span12
+                .yellow-calculation-text
+                  Закажите дизайн вашего билета
+            .row
+              .span12
+                .white-line
+                  = simple_form_for('callback', url: root_path, html: { class: '' }) do |f|
+                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
+                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.submit 'Заказать', class: "yellow-submit"
+      .gradient3#side3
+      .price
+        .container
+          .content
+            .row
+              .span12
+                .yellow-table-line
+                  Прайс-лист
+            .row-fluid.yellow-border-maket
+              .span3.contrackt
+                Тип контракта
+              .span2.tiraj
+                мин. тираж
+              .span2.one-bilet
+                1 билет
+              .span2.module
+                заглавный модуль
+              .span3.cost
+                сумма заказа
+            .row-fluid.yellow-border
+              .span3.contrackt
+                Месяц
+              .span2.tiraj
+                12 000
+              .span2.one-bilet
+                35 коп.
+              .span2.module
+                9 коп.
+              .span3.cost
+                4 200 / 5 280 р.
+            .row-fluid.yellow-border
+              .span3.contrackt
+                Квартал
+              .span2.tiraj
+                36 000
+              .span2.one-bilet
+                33 коп.
+              .span2.module
+                7 коп.
+              .span3.cost
+                11 880 / 14 400 р.
+            .row-fluid.yellow-border
+              .span3.contrackt
+                Полгода
+              .span2.tiraj
+                72 000
+              .span2.one-bilet
+                31 коп.
+              .span2.module
+                5 коп.
+              .span3.cost
+                22 320 / 25 920 р.
+            .row-fluid.yellow-border
+              .span3.contrackt
+                Год
+              .span2.tiraj
+                144 000
+              .span2.one-bilet
+                29 коп.
+              .span2.module
+                3 коп.
+              .span3.cost
+                41 760 / 46 080 р.
+            .row-fluid.yellow-border
+              .span3.contrackt
+                Дизайн-макет
+              .span3.offset6.cost
+                500 р.
+      .gradient2
+      .yellow-offer-of-the-week
+        .container
+          .content
+            .row
+              .span7
+                .yellow-offer-of-the-week-block
+                  .red-text
+                    Предложение недели
+                  .text-do
+                    закажите
+                  .text-titcket
+                    36 000 билетов
+                  .text-to
+                    всего за
+                    %span 11 000
+                    руб.
+              .span5
+                .yellow-offer-of-the-week-form
+                  = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
+                    .time-action
+                      до конца акции осталось
+                    .input-string
+                      .clocks
+                        %i.t_h
+                        .div час
+                        %i.t_m
+                        .div мин
+                        %i.t_s
+                        .div сек
+                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
+                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.submit 'оставить заявку', class: "red-submit"
+      .gradient3#side5
+      .template
+        .container
+          .content
+            .row
+              .span12
+                .yellow-table-line
+                  Наши работы
+            .row
+              .span4
+                .image-template
+                  = image_tag('work2.jpg')
+              .span4
+                .image-template
+                  = image_tag('work3.jpg')
+              .span4
+                .image-template
+                  = image_tag('work4.jpg')
+            .row
+              .span12
+                &nbsp;
+            .row
+              .span4
+                .image-template
+                  = image_tag('work1.jpg')
+              .span4
+                .image-template
+                  = image_tag('work5.jpg')
+              .span4
+                .image-template
+                  = image_tag('work6.jpg')
+            .row
+              .span12
+                &nbsp;
+            .row
+              .span4
+                .image-template
+                  = image_tag('work7.jpg')
+              .span4
+                .image-template
+                  = image_tag('work8.jpg')
+              .span4
+                .image-template
+                  = image_tag('work9.jpg')
+    %footer
+      = yield
