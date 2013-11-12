@@ -84,7 +84,9 @@ before 'deploy:restart', 'deploy:migrate'
 after "deploy:update_code", :copy_database_config
 task :copy_database_config, roles => :app do
   db_config = "#{shared_path}/database.yml"
+  app_config = "#{shared_path}/application.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
+  run "cp #{app_config} #{release_path}/config/application.yml"
   #Если нужна папка uploads то нужно сделать ее в папке shared чтобы не потерять файлы при деплое
   run "ln -s #{shared_path}/shared/uploads #{release_path}/public/uploads"
 end
