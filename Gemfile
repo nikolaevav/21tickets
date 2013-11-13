@@ -25,6 +25,7 @@ group :development do
   gem 'rails_layout'
   gem 'rspec-rails'
   gem 'mailcatcher', git: 'git://github.com/sj26/mailcatcher.git'
+  gem "debugger"
 end
 
 group :production do

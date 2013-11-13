@@ -1,7 +1,9 @@
+# -*- coding: utf-8 -*-
 class HomeController < ApplicationController
   before_filter :setup_negative_captcha, only: [:index, :submit]
 
   def index
+    @set = Setting.find_or_create_by(name: 'ticket')
   end
 
   def else
@@ -9,7 +11,9 @@ class HomeController < ApplicationController
   end
 
   def submit
-    @callback_form = CallbackForm.new(@captcha.values)
+    NoticeMailer.new_callback_form(@captcha.values).deliver
+    flash[:notice] = 'Спасибо за заказ, мы свяжемся с вами в ближайшее время!'
+    redirect_to root_path
   end
 
   private

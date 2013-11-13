@@ -1,0 +1,19 @@
+.container
+  .content
+    .row
+      .span10.offset1
+        = simple_form_for(@setting, html: { id: 'j-form-speller' }) do |f|
+          = f.error_notification
+          = f.input :title, label: 'Заголовок сайта', input_html: { class: "input-xxlarge" }
+          = f.input :description, label: 'Описание сайта', input_html: { rows: 7, class: "input-block-level" }
+          = f.input :keywords, label: 'SEO слова (через запятую)', input_html: { rows: 7, class: "input-block-level" }
+          = f.input :email, label: 'Почтовый ящик для получения писем', input_html: { class: "input-xxlarge" }
+          = f.input :email_show, label: 'Почтовый ящик для на странице сайта', input_html: { class: "input-xxlarge" }
+          = f.input :phone_one, label: 'Первый телефон для контактов на странице сайта', input_html: { class: "input-xxlarge" }
+          = f.input :phone_two, label: 'Второй телефон для контактов на странице сайта', input_html: { class: "input-xxlarge" }
+          = f.input :metrika, label: 'Яндекс метрика на сайте', input_html: { rows: 7, class: "input-block-level" }
+          = f.input :google, label: 'Гугл аналитика на сайте', input_html: { rows: 7, class: "input-block-level" }
+          = f.input :vkgroup, label: 'VK Группа в низу сайта', input_html: { rows: 7, class: "input-block-level" }
+          = f.input :fbgroup, label: 'FB Группа в низу сайта', input_html: { rows: 7, class: "input-block-level" }
+
+          = f.button :submit, "Сохранить", class: 'btn-success'

@@ -1,0 +1,16 @@
+Добрый день!
+%br
+Вам поступила заявка на обратный звонок от клиента с сайта:
+= link_to "www.21ticket.ru", root_url
+%br
+%br
+%h3 Клиент:
+%p
+  %strong Имя:
+  = @client[:name]
+%p
+  %strong Email:
+  = @client[:email]
+%p
+  %strong Телефон:
+  = @client[:phone]
