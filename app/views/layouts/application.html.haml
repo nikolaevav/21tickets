@@ -20,12 +20,12 @@
           .row
             .span4
             .span4
-              - if @set.vkgroup.present?
+              - if @set && @set.vkgroup.present?
                 = @set.vkgroup
             .span4
-              - if @set.fbgroup.present?
+              - if @set && @set.fbgroup.present?
                 = @set.fbgroup
-    - if @set.metrika.present?
+    - if @set && @set.metrika.present?
       = @set.metrika
-    - if @set.google.present?
+    - if @set && @set.google.present?
       = @set.google
