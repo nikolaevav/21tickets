@@ -25,7 +25,7 @@
                 = image_tag 'logo.jpg'
             .span4
               .phone +7 [8352] 46-05-05
-              .phone2 +7 [8352] 46-05-05
+              .phone2 +7 [8352] 24-25-25
               .mail 1_rkm@mail.ru
       .clear
       .tac
@@ -46,11 +46,18 @@
               .yellow-title-gaz
                 Быстрое и эффективное размещение Вашей рекламы
               .yellow-form-callback
-                = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
-                  = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
-                  = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
-                  = f.input_field :email, placeholder: 'Email', 'data-validation' => "email"
-                  = f.submit 'Заказать рекламу', class: "yellow-submit"
+                = simple_form_for 'callback', url: submit_path, html: { class: 'form-vertical' } do
+                  = raw negative_captcha(@captcha)
+                  .control-group.string
+                    .controls
+                      = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
+                  .control-group.string
+                    .controls
+                      = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
+                  .control-group.string
+                    .controls
+                      = negative_text_field_tag(@captcha, :email, placeholder: "Email", 'data-validation' => "email")
+                  = submit_tag "Заказать рекламу", class: "yellow-submit"
               = image_tag 'gazele.jpg'
           .row-fluid.why-its-work
             .span5
@@ -111,7 +118,8 @@
                     руб.
               .span5
                 .yellow-offer-of-the-week-form
-                  = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
+                  = simple_form_for 'callback', url: submit_path, html: { class: 'form-vertical' } do
+                    = raw negative_captcha(@captcha)
                     .time-action
                       до конца акции осталось
                     .input-string
@@ -122,9 +130,13 @@
                         .div мин
                         %i.t_s
                         .div сек
-                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
-                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
-                    = f.submit 'оставить заявку', class: "red-submit"
+                    .control-group.string
+                      .controls
+                        = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
+                    .control-group.string
+                      .controls
+                        = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
+                    = submit_tag "оставить заявку", class: "red-submit"
       .gradient3#side1
       .container
         .content
@@ -173,10 +185,11 @@
             .row
               .span12
                 .white-line
-                  = simple_form_for('callback', url: root_path, html: { class: '' }) do |f|
-                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
-                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
-                    = f.submit 'Заказать', class: "yellow-submit"
+                  = simple_form_for 'callback', url: submit_path, html: { class: '' } do
+                    = raw negative_captcha(@captcha)
+                    = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
+                    = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
+                    = submit_tag "Заказать", class: "yellow-submit"
       .gradient3#side2
       .yellow-table
         .container
@@ -308,10 +321,11 @@
             .row
               .span12
                 .white-line
-                  = simple_form_for('callback', url: root_path, html: { class: '' }) do |f|
-                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
-                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
-                    = f.submit 'Заказать', class: "yellow-submit"
+                  = simple_form_for 'callback', url: submit_path, html: { class: '' } do
+                    = raw negative_captcha(@captcha)
+                    = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
+                    = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
+                    = submit_tag "Заказать", class: "yellow-submit"
       .gradient3#side3
       .price
         .container
@@ -399,7 +413,8 @@
                     руб.
               .span5
                 .yellow-offer-of-the-week-form
-                  = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
+                  = simple_form_for 'callback', url: submit_path, html: { class: 'form-vertical' } do
+                    = raw negative_captcha(@captcha)
                     .time-action
                       до конца акции осталось
                     .input-string
@@ -410,9 +425,13 @@
                         .div мин
                         %i.t_s
                         .div сек
-                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
-                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
-                    = f.submit 'оставить заявку', class: "red-submit"
+                    .control-group.string
+                      .controls
+                        = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
+                    .control-group.string
+                      .controls
+                        = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
+                    = submit_tag "оставить заявку", class: "red-submit"
       .gradient3#side5
       .template
         .container

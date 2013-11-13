@@ -14,16 +14,17 @@ gem 'figaro'
 gem 'haml-rails'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
-
+gem 'breach-mitigation-rails'
+gem 'negative_captcha'
 
 group :development do
-  gem 'thin'
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
   gem 'html2haml'
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rspec-rails'
+  gem 'mailcatcher', git: 'git://github.com/sj26/mailcatcher.git'
 end
 
 group :production do
