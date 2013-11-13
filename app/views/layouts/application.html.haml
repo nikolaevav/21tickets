@@ -21,11 +21,11 @@
             .span4
             .span4
               - if @set && @set.vkgroup.present?
-                = @set.vkgroup
+                = @set.vkgroup.html_safe
             .span4
               - if @set && @set.fbgroup.present?
-                = @set.fbgroup
+                = @set.fbgroup.html_safe
     - if @set && @set.metrika.present?
-      = @set.metrika
+      = @set.metrika.html_safe
     - if @set && @set.google.present?
-      = @set.google
+      = @set.google.html_safe
