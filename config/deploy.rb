@@ -95,8 +95,6 @@ end
 
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
-
-
 # - for unicorn - #
 namespace :deploy do
   desc "Start application"
@@ -112,5 +110,10 @@ namespace :deploy do
   desc "Restart Application"
   task :restart, :roles => :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
+  end
+
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec rake RAILS_ENV=production db:seed"
   end
 end
