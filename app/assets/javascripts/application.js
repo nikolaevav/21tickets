@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
+//= require jquery.form-validator
+//= require jquery.maskedinput
+//= require timer.js
+//= require home.js

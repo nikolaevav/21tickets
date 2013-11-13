@@ -47,9 +47,9 @@
                 Быстрое и эффективное размещение Вашей рекламы
               .yellow-form-callback
                 = simple_form_for('callback', url: root_path, html: { class: 'form-vertical' }) do |f|
-                  = f.input_field :name, placeholder: 'Ваше Имя', required: true
-                  = f.input_field :phone, placeholder: 'Телефон', required: true
-                  = f.input_field :email, placeholder: 'Email', required: true
+                  = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
+                  = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
+                  = f.input_field :email, placeholder: 'Email', 'data-validation' => "email"
                   = f.submit 'Заказать рекламу', class: "yellow-submit"
               = image_tag 'gazele.jpg'
           .row-fluid.why-its-work
@@ -122,8 +122,8 @@
                         .div мин
                         %i.t_s
                         .div сек
-                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
-                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
+                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
                     = f.submit 'оставить заявку', class: "red-submit"
       .gradient3#side1
       .container
@@ -174,8 +174,8 @@
               .span12
                 .white-line
                   = simple_form_for('callback', url: root_path, html: { class: '' }) do |f|
-                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
-                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
+                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
                     = f.submit 'Заказать', class: "yellow-submit"
       .gradient3#side2
       .yellow-table
@@ -309,8 +309,8 @@
               .span12
                 .white-line
                   = simple_form_for('callback', url: root_path, html: { class: '' }) do |f|
-                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
-                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
+                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
                     = f.submit 'Заказать', class: "yellow-submit"
       .gradient3#side3
       .price
@@ -410,8 +410,8 @@
                         .div мин
                         %i.t_s
                         .div сек
-                    = f.input_field :name, placeholder: 'Ваше Имя', required: true
-                    = f.input_field :phone, placeholder: 'Телефон', required: true
+                    = f.input_field :name, placeholder: 'Ваше Имя', 'data-validation' => "length", 'data-validation-length' => "min3"
+                    = f.input_field :phone, placeholder: 'Телефон', class: 'iphone', 'data-validation' => "length", 'data-validation-length' => "min10"
                     = f.submit 'оставить заявку', class: "red-submit"
       .gradient3#side5
       .template
