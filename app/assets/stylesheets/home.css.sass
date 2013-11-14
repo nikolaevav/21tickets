@@ -20,11 +20,13 @@ body
   a
     color: white
 
+.header
+  padding: 20px 20px 0
+
 .gradient1
   background: #FEFFF6
   background: linear-gradient(to bottom, #E5E066, #FEFFF6)
   height: 40px
-  margin-bottom: 20px
 
 .gradient2
   background: #FFFFF2
@@ -218,6 +220,7 @@ body
       text-align: center
       +border-radius(4px)
       margin-bottom: 10px
+      font-size: 18px
       font-weight: bold
       div
         display: inline-block
@@ -425,7 +428,7 @@ body
     margin: 10px 0
     border: 2px solid #F7DB16
     +border-radius(5px)
-    font-size: 20px
+    font-size: 16px
     .contrackt, .cost
       font-weight: bold
     .tiraj, .one-bilet, .module, .cost
@@ -433,7 +436,6 @@ body
       padding: 10px 15px 10px
     .contrackt
       padding: 10px 15px 10px
-      text-transform: uppercase
     .cost
       text-align: right
       padding: 10px 15px 10px
@@ -441,9 +443,8 @@ body
     margin: 10px 0
     border: 2px solid #F7DB16
     +border-radius(5px)
-    font-size: 16px
+    font-size: 15px
     .contrackt, .cost, .tiraj, .one-bilet, .module, .cost
-      font-weight: bold
       text-transform: uppercase
     .tiraj, .one-bilet, , .cost
       text-align: center
@@ -452,11 +453,39 @@ body
       padding: 15px 15px 10px
     .module
       text-align: center
-      font-size: 12px
+      font-size: 13px
       padding: 5px
     .cost
       text-align: right
       padding: 15px 15px 10px
+  .phone
+    font-size: 24px
+    padding-top: 10px
+    padding-bottom: 5px
+    font-weight: bold
+  .phone2
+    font-size: 24px
+    font-weight: bold
+  .mail
+    font-size: 24px
+    padding-top: 20px
+    text-align: right
+    font-weight: bold
+  .yellow-submit-block
+    text-align: center
+    padding-top: 15px
+    .yellow-submit
+      color: #1E1916
+      width: 220px
+      border: none
+      background-color: #F4DB24
+      padding: 10px 0
+      font-size: 16px
+      font-weight: bold
+      text-transform: uppercase
+      +border-radius(5px)
+      box-shadow: none
+      background-image: none
 
 .our-work
   .yellow-table-line
@@ -474,5 +503,4 @@ body
 
 
 footer
-  height: 400px
   background-color: #F7DB16

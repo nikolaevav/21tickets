@@ -6,14 +6,14 @@
   = description @set.description
 
 .container
-  .content
+  .content.header
     .row
       .span12
         = render 'layouts/messages'
     .row.title-about
       .span4
         .about
-          Реклама на билетах маршрутных такси
+          Реклама на билетах маршруток
         .city
           В Чебоксарах
       .span4
@@ -34,7 +34,7 @@
           .mail 1_rkm@mail.ru
         
 
-.clear
+.clear#side-form
 .tac
   %ul#menu
     %li= link_to "Что мы делаем", "#side1", class: 'smooth'
@@ -341,66 +341,85 @@
         .span12
           .yellow-table-line
             Прайс-лист
-      .row-fluid.yellow-border-maket
-        .span3.contrackt
-          Тип контракта
-        .span2.tiraj
-          мин. тираж
-        .span2.one-bilet
-          1 билет
-        .span2.module
-          заглавный модуль
-        .span3.cost
-          сумма заказа
-      .row-fluid.yellow-border
-        .span3.contrackt
-          Месяц
-        .span2.tiraj
-          12 000
-        .span2.one-bilet
-          35 коп.
-        .span2.module
-          9 коп.
-        .span3.cost
-          4 200 / 5 280 р.
-      .row-fluid.yellow-border
-        .span3.contrackt
-          Квартал
-        .span2.tiraj
-          36 000
-        .span2.one-bilet
-          33 коп.
-        .span2.module
-          7 коп.
-        .span3.cost
-          11 880 / 14 400 р.
-      .row-fluid.yellow-border
-        .span3.contrackt
-          Полгода
-        .span2.tiraj
-          72 000
-        .span2.one-bilet
-          31 коп.
-        .span2.module
-          5 коп.
-        .span3.cost
-          22 320 / 25 920 р.
-      .row-fluid.yellow-border
-        .span3.contrackt
-          Год
-        .span2.tiraj
-          144 000
-        .span2.one-bilet
-          29 коп.
-        .span2.module
-          3 коп.
-        .span3.cost
-          41 760 / 46 080 р.
-      .row-fluid.yellow-border
-        .span3.contrackt
-          Дизайн-макет
-        .span3.offset6.cost
-          500 р.
+      .row-fluid
+        .span8.offset2
+          .row-fluid.yellow-border-maket
+            .span3.tiraj
+              мин. тираж
+            .span3.one-bilet
+              1 билет
+            .span2.module
+              заглавный модуль
+            .span4.cost
+              сумма заказа
+      .row-fluid
+        .span8.offset2
+          .row-fluid.yellow-border
+            .span3.tiraj
+              12 000
+            .span3.one-bilet
+              35 коп.
+            .span2.module
+              9 коп.
+            .span4.cost
+              4 200 / 5 280 р.
+      .row-fluid
+        .span8.offset2
+          .row-fluid.yellow-border
+            .span3.tiraj
+              36 000
+            .span3.one-bilet
+              33 коп.
+            .span2.module
+              7 коп.
+            .span4.cost
+              11 880 / 14 400 р.
+      .row-fluid
+        .span8.offset2
+          .row-fluid.yellow-border
+            .span3.tiraj
+              72 000
+            .span3.one-bilet
+              31 коп.
+            .span2.module
+              5 коп.
+            .span4.cost
+              22 320 / 25 920 р.
+      .row-fluid
+        .span8.offset2
+          .row-fluid.yellow-border
+            .span3.tiraj
+              144 000
+            .span3.one-bilet
+              29 коп.
+            .span2.module
+              3 коп.
+            .span4.cost
+              41 760 / 46 080 р.
+      .row-fluid
+        .span8.offset2
+          .row-fluid.yellow-border
+            .span4.contrackt
+              Дизайн-макет
+            .span4.offset4.cost
+              500 р.
+      .row
+        .span3.offset1
+          - if @set.email_show.present?
+            .mail= @set.email_show
+          - else
+            .mail 1_rkm@mail.ru
+        .span4.yellow-submit-block
+          = link_to 'заказать', "#side-form", class: 'btn yellow-submit smooth'
+        .span3
+          - if @set.phone_one.present?
+            .phone= @set.phone_one
+          - else
+            .phone +7 [8352] 46-05-05
+          - if @set.phone_two.present?
+            .phone2= @set.phone_two
+          - else
+            .phone2 +7 [8352] 24-25-25
 .gradient2
 .yellow-offer-of-the-week
   .container
