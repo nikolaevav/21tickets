@@ -129,14 +129,7 @@
               = raw negative_captcha(@captcha)
               .time-action
                 до конца акции осталось
-              .input-string
-                .clocks
-                  %i.t_h
-                  .div час
-                  %i.t_m
-                  .div мин
-                  %i.t_s
-                  .div сек
+              #countdown
               .control-group.string
                 .controls
                   = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
@@ -443,14 +436,7 @@
               = raw negative_captcha(@captcha)
               .time-action
                 до конца акции осталось
-              .input-string
-                .clocks
-                  %i.t_h
-                  .div час
-                  %i.t_m
-                  .div мин
-                  %i.t_s
-                  .div сек
+              #countdown2
               .control-group.string
                 .controls
                   = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")

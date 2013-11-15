@@ -32,4 +32,23 @@ jQuery(document).ready(function(){
   });
   
   $.validate();
+
+  Date.prototype.endOfWeek = function(){
+    return new Date( 
+        this.getFullYear(), 
+        this.getMonth(), 
+        this.getDate() + 8 - this.getDay() 
+    );
+  };
+
+  var now = new Date();
+
+  ts = now.endOfWeek();
+
+  $('#countdown').countdown({
+    timestamp: ts
+  });
+  $('#countdown2').countdown({
+    timestamp: ts
+  });
 });

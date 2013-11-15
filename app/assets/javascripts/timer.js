@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 
-  endTime = new Date(2020,01,01,23,0,0,0).getTime();
+  endTime = new Date(2013, 10, 30);
   var days  = 24*60*60,
     hours = 60*60,
     minutes = 60;

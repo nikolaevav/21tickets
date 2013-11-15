@@ -6,6 +6,7 @@
     %meta{:name => "keywords", :content => "#{content_for?(:keywords) ? yield(:keywords) : 'билеты'}"}
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag 'http://maps.api.2gis.ru/1.0'
     = csrf_meta_tags
   %body
     .gradient1
@@ -18,13 +19,68 @@
       .container
         .content
           .row
-            .span4
+            .span8
+              #companyMap{ style: "width: 620px; height: 400px" }
+              :javascript
+                // Создаем обработчик загрузки страницы: 
+                DG.autoload(function() {
+                  var myMap = new DG.Map('companyMap');
+                  // myMap.setCenter(new DG.GeoPoint(82.9278, 55.0289), 9);        
+                  // @company.city.name
+                  // types: ['city', 'settlement', 'district'],
+                  DG.Geocoder.get("Чебоксары, Калинина, 80", {
+                      limit: 1,
+                      // Обработка успешного поиска
+                      success: function(geocoderObjects) {
+                          // Обходим циклом все полученные геообъекты
+                          for(var i = 0, len = geocoderObjects.length; i < len; i++) {
+                              var geocoderObject = geocoderObjects[i];
+                              var centerPoint = geocoderObject.getCenterGeoPoint();
+                              myMap.setCenter(new DG.GeoPoint(centerPoint.getLon(), centerPoint.getLat()), 16);
+
+                              // Получаем маркер из геообъекта с помощью метода getMarker.
+                              // Первый параметр - иконка маркера, второй параметр - функция, которая сработает при клике на маркер
+                              var markerIcon = null; // иконка по умолчанию
+                              var marker = geocoderObject.getMarker(
+                                  markerIcon, 
+                                  (function(geocoderObject) {
+                                      return function () {
+                                          var info =  '';
+
+                                          // Основная информация о геообъекте
+                                          info += 'Type: ' + geocoderObject.getType() + '\n';
+                                          info += 'Name: ' + geocoderObject.getName() + '\n';
+                                          info += 'Short name: ' + geocoderObject.getShortName() + '\n';
+
+                                          // Дополнительная информация о геообъекте
+                                          var attributes = geocoderObject.getAttributes();
+                                          for (var attribute in attributes) {
+                                              if (attributes.hasOwnProperty(attribute)) {
+                                                  info += attribute + ': ' + attributes[attribute] + '\n';
+                                              }
+                                          }
+
+                                          // Географические координаты центра геообъекта
+                                          var centerGeoPoint = geocoderObject.getCenterGeoPoint();
+                                          info += 'Longitude: ' + centerGeoPoint.getLon() + '\n';
+                                          info += 'Latitude: ' + centerGeoPoint.getLat();
+
+                                      }
+                                  })(geocoderObject) //Создаем анонимную функцию и сразу же ее вызываем 
+                              );
+
+                              myMap.markers.add(marker);
+                          }
+                      },
+                      // Обработка ошибок
+                      failure: function(code, message) {
+                          alert(code + ' ' + message);
+                      }
+                  });
+                });
             .span4
               - if @set && @set.vkgroup.present?
                 = @set.vkgroup.html_safe
-            .span4
-              - if @set && @set.fbgroup.present?
-                = @set.fbgroup.html_safe
     - if @set && @set.metrika.present?
       = @set.metrika.html_safe
     - if @set && @set.google.present?

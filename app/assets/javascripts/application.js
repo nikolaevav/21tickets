@@ -15,5 +15,5 @@
 //= require bootstrap
 //= require jquery.form-validator
 //= require jquery.maskedinput
-//= require timer.js
 //= require home.js
+//= require counter.js
