@@ -24,7 +24,7 @@ class HomeController < ApplicationController
       secret: ENV['SECRET_TOKEN'],
       spinner: request.remote_ip, 
 
-      fields: [:name, :phone, :email],
+      fields: [:name, :phone, :email, :utm_term],
       params: params
     )
   end

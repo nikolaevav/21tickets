@@ -17,7 +17,7 @@
   position:absolute;
   display:block;
   width:1em;
-  background-color:#FF8339;
+  background-color:#343434;
   border-radius:0.2em;
   text-align:center;
   color:#fff;
@@ -27,11 +27,11 @@
 .digit.static{
   box-shadow:1px 1px 1px rgba(4, 4, 4, 0.35);
   
-  background-image: linear-gradient(bottom, #FF8339  50%, #FE5E00 50%);
-  background-image: -o-linear-gradient(bottom, #FF8339 50%, #FE5E00 50%);
-  background-image: -moz-linear-gradient(bottom, #FF8339 50%, #FE5E00 50%);
-  background-image: -webkit-linear-gradient(bottom, #FF8339 50%, #FE5E00 50%);
-  background-image: -ms-linear-gradient(bottom, #FF8339 50%, #FE5E00 50%);
+  background-image: linear-gradient(bottom, #343434  50%, #1F1F1F 50%);
+  background-image: -o-linear-gradient(bottom, #343434 50%, #1F1F1F 50%);
+  background-image: -moz-linear-gradient(bottom, #343434 50%, #1F1F1F 50%);
+  background-image: -webkit-linear-gradient(bottom, #343434 50%, #1F1F1F 50%);
+  background-image: -ms-linear-gradient(bottom, #343434 50%, #1F1F1F 50%);
 }
 
 /**
@@ -60,7 +60,7 @@
   position:absolute;
   width:5px;
   height:5px;
-  background-color:#FF8339;
+  background-color:#343434;
   border-radius:50%;
   left:50%;
   margin-left:-3px;

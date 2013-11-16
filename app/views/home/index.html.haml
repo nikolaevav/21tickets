@@ -55,6 +55,7 @@
         .yellow-form-callback
           = simple_form_for 'callback', url: submit_path, html: { class: 'form-vertical' } do
             = raw negative_captcha(@captcha)
+            = negative_hidden_field_tag(@captcha, :utm_term, value: params[:utm_term])
             .control-group.string
               .controls
                 = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
@@ -127,9 +128,19 @@
           .yellow-offer-of-the-week-form
             = simple_form_for 'callback', url: submit_path, html: { class: 'form-vertical' } do
               = raw negative_captcha(@captcha)
+              = negative_hidden_field_tag(@captcha, :utm_term, value: params[:utm_term])
               .time-action
                 до конца акции осталось
               #countdown
+              .countdown-text
+                .t-day
+                  дни
+                .t-hour
+                  часы
+                .t-min
+                  минуты
+                .t-sec
+                  секунды
               .control-group.string
                 .controls
                   = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
@@ -187,6 +198,7 @@
           .white-line
             = simple_form_for 'callback', url: submit_path, html: { class: '' } do
               = raw negative_captcha(@captcha)
+              = negative_hidden_field_tag(@captcha, :utm_term, value: params[:utm_term])
               = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
               = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
               = submit_tag "Заказать", class: "yellow-submit"
@@ -323,6 +335,7 @@
           .white-line
             = simple_form_for 'callback', url: submit_path, html: { class: '' } do
               = raw negative_captcha(@captcha)
+              = negative_hidden_field_tag(@captcha, :utm_term, value: params[:utm_term])
               = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
               = negative_text_field_tag(@captcha, :phone, placeholder: "Телефон", class: "iphone", 'data-validation' => "length", 'data-validation-length' => "min10")
               = submit_tag "Заказать", class: "yellow-submit"
@@ -434,9 +447,19 @@
           .yellow-offer-of-the-week-form
             = simple_form_for 'callback', url: submit_path, html: { class: 'form-vertical' } do
               = raw negative_captcha(@captcha)
+              = negative_hidden_field_tag(@captcha, :utm_term, value: params[:utm_term])
               .time-action
                 до конца акции осталось
               #countdown2
+              .countdown-text
+                .t-day
+                  дни
+                .t-hour
+                  часы
+                .t-min
+                  минуты
+                .t-sec
+                  секунды
               .control-group.string
                 .controls
                   = negative_text_field_tag(@captcha, :name, placeholder: "Ваше Имя", 'data-validation' => "length", 'data-validation-length' => "min3")
