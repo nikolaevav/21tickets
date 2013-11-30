@@ -8,7 +8,11 @@ class SettingsController < ApplicationController
 
   def update
     @setting = Setting.find(params[:id])
-    @setting.update_attributes(setting_params)
+    if @setting.update_attributes(setting_params)
+      flash[:notice] = "Settings Save"
+    else
+      flash[:wrong] = "Something wrong"
+    end
     redirect_to root_path
   end
 
