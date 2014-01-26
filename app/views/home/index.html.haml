@@ -28,6 +28,10 @@
           .phone2= @set.phone_two
         - else
           .phone2 +7 [8352] 24-25-25
+        - if @set.phone_three.present?
+          .phone2= @set.phone_three
+        - else
+          .phone2 +7 [8352] 29-55-00
         - if @set.email_show.present?
           .mail= @set.email_show
         - else
@@ -106,7 +110,7 @@
               .tail
             %td
               .text
-                Придя домой или на работу, пассажир вновь достает билет из кармана (кошелька) и снова смотрит на него.
+                Придя домой или на работу, пассажир вновь достает билет из кармана (кошелька) и снова видит Вашу рекламу.
 .gradient2
 .yellow-offer-of-the-week
   .container
@@ -395,13 +399,13 @@
         .span8.offset2
           .row-fluid.yellow-border
             .span3.tiraj
-              228 000
+              256 000
             .span3.one-bilet
               29 коп.
             .span2.module
               3 коп.
             .span4.cost
-              83 520 / 92 160 р.
+              74 240 / 81 920 р.
       .row-fluid
         .span8.offset2
           .row-fluid.yellow-border
@@ -426,6 +430,10 @@
             .phone2= @set.phone_two
           - else
             .phone2 +7 [8352] 24-25-25
+          - if @set.phone_three.present?
+            .phone2= @set.phone_three
+          - else
+            .phone2 +7 [8352] 29-55-00
 .gradient2
 .yellow-offer-of-the-week
   .container

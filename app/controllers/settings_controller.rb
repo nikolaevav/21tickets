@@ -22,6 +22,6 @@ class SettingsController < ApplicationController
     params.require(:setting).permit(:title, :description, :keywords,
                                     :email, :email_show, :phone_one,
                                     :phone_two, :metrika, :google,
-                                    :vkgroup, :fbgroup)
+                                    :vkgroup, :fbgroup, :phone_three)
   end
 end
