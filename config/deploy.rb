@@ -39,7 +39,10 @@ set :deploy_server,   "phosphorus.locum.ru"
 # Не включать в поставку разработческие инструменты и пакеты тестирования.
 set :bundle_without,  [:development, :test]
 
+
+
 dpath = "/home/hosting_antonfenix/projects/#{application}"
+
 
 set :user,            "hosting_antonfenix"
 set :login,           "antonfenix"
@@ -51,24 +54,22 @@ set :unicorn_pid,     "/var/run/unicorn/#{application}.#{login}.pid"
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
 role :web,            deploy_server
 role :app,            deploy_server
-role :db,             deploy_server, :primary => true
+role :db,             deploy_server, primary: true
 
 # Следующие строки необходимы, т.к. ваш проект использует rvm.
-set :rvm_ruby_string, "1.9.3"
-set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake" 
+set :rvm_ruby_string, "2.1.1"
+set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake"
 set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 
-# Настройка системы контроля версий и репозитария,
-# по умолчанию - git, если используется иная система версий,
-# нужно изменить значение scm.
-set :scm,             :git
 
 # Предполагается, что вы размещаете репозиторий Git в вашем
 # домашнем каталоге в подкаталоге git/<имя проекта>.git.
 # Подробнее о создании репозитория читайте в нашем блоге
 # http://locum.ru/blog/hosting/git-on-locum
 #set :repository,      "ssh://#{user}@#{deploy_server}/home/#{user}/git/#{application}.git"
-set :repository, "file:///home/nikolaevav/Dropbox/code/fenix/tickets"
+set :scm, :git
+set :repository, "git@github.com:nikolaevav/21tickets.git"
+set :branch, 'master'
 
 ## Если ваш репозиторий в GitHub, используйте такую конфигурацию
 # set :repository,    "git@github.com:username/project.git"
@@ -76,7 +77,7 @@ set :repository, "file:///home/nikolaevav/Dropbox/code/fenix/tickets"
 ## --- Ниже этого места ничего менять скорее всего не нужно ---
 
 before 'deploy:finalize_update', 'set_current_release'
-task :set_current_release, :roles => :app do
+task :set_current_release, roles: :app do
     set :current_release, latest_release
 end
 before 'deploy:restart', 'deploy:migrate'
@@ -88,6 +89,7 @@ task :copy_database_config, roles => :app do
   run "rm -f #{release_path}/config/database.yml"
   run "cp #{db_config} #{release_path}/config/database.yml"
   run "cp #{app_config} #{release_path}/config/application.yml"
+  run "cp #{shared_path}/secrets.yml #{release_path}/config/secrets.yml"
   #Если нужна папка uploads то нужно сделать ее в папке shared чтобы не потерять файлы при деплое
   run "ln -s #{shared_path}/shared/uploads #{release_path}/public/uploads"
 end
@@ -98,17 +100,17 @@ set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do
 # - for unicorn - #
 namespace :deploy do
   desc "Start application"
-  task :start, :roles => :app do
+  task :start, roles: :app do
     run unicorn_start_cmd
   end
 
   desc "Stop application"
-  task :stop, :roles => :app do
+  task :stop, roles: :app do
     run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
   end
 
   desc "Restart Application"
-  task :restart, :roles => :app do
+  task :restart, roles: :app do
     run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
 

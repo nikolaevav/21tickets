@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.1.1'
 
-gem 'rails', '4.0.1'
+gem 'rails', '4.1.1'
 gem 'pg'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
@@ -24,7 +24,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rspec-rails'
-  gem 'mailcatcher', git: 'git://github.com/sj26/mailcatcher.git'
+  # gem 'mailcatcher', git: 'git://github.com/sj26/mailcatcher.git'
   gem "debugger"
 end
 
@@ -32,4 +32,4 @@ group :production do
   gem 'unicorn'
 end
 
-gem 'capistrano'
+gem 'capistrano', '~> 2.15.5'

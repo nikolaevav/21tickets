@@ -30,10 +30,10 @@ Tickets::Application.configure do
   # Send email in development mode.
   config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' } 
-  config.action_mailer.smtp_settings = { :host => "localhost", :port => 1025 }
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.smtp_settings = { host: "localhost", port: 1025 }
   config.action_mailer.delivery_method = :smtp
   # change to true to allow email to be sent during development
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default charset: "utf-8"
 
 end

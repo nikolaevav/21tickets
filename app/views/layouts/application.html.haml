@@ -2,15 +2,15 @@
 %html
   %head
     %title= content_for?(:title) ? yield(:title) : 'Рекламные билеты в маршрутных такси Чебоксары'
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Tickets'}"}
-    %meta{:name => "keywords", :content => "#{content_for?(:keywords) ? yield(:keywords) : 'билеты'}"}
+    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : 'Tickets'}"}
+    %meta{name: "keywords", content: "#{content_for?(:keywords) ? yield(:keywords) : 'билеты'}"}
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag 'http://maps.api.2gis.ru/1.0'
     = csrf_meta_tags
   %body
     .gradient1
-    %main{:role => "main"}
+    %main{role: "main"}
       - if user_signed_in?
         .admin-red-button
           = link_to "настройки", edit_setting_path(1)
@@ -22,10 +22,10 @@
             .span8
               #companyMap{ style: "width: 620px; height: 400px" }
               :javascript
-                // Создаем обработчик загрузки страницы: 
+                // Создаем обработчик загрузки страницы:
                 DG.autoload(function() {
                   var myMap = new DG.Map('companyMap');
-                  // myMap.setCenter(new DG.GeoPoint(82.9278, 55.0289), 9);        
+                  // myMap.setCenter(new DG.GeoPoint(82.9278, 55.0289), 9);
                   // @company.city.name
                   // types: ['city', 'settlement', 'district'],
                   DG.Geocoder.get("Чебоксары, Калинина, 80", {
@@ -42,7 +42,7 @@
                               // Первый параметр - иконка маркера, второй параметр - функция, которая сработает при клике на маркер
                               var markerIcon = null; // иконка по умолчанию
                               var marker = geocoderObject.getMarker(
-                                  markerIcon, 
+                                  markerIcon,
                                   (function(geocoderObject) {
                                       return function () {
                                           var info =  '';
@@ -66,7 +66,7 @@
                                           info += 'Latitude: ' + centerGeoPoint.getLat();
 
                                       }
-                                  })(geocoderObject) //Создаем анонимную функцию и сразу же ее вызываем 
+                                  })(geocoderObject) //Создаем анонимную функцию и сразу же ее вызываем
                               );
 
                               myMap.markers.add(marker);
