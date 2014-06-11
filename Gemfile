@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.1'
+# ruby '2.1.1'
 
 gem 'rails', '4.1.1'
 gem 'pg'
@@ -25,7 +25,7 @@ group :development do
   gem 'rails_layout'
   gem 'rspec-rails'
   # gem 'mailcatcher', git: 'git://github.com/sj26/mailcatcher.git'
-  gem "debugger"
+  # gem "debugger"
 end
 
 group :production do
